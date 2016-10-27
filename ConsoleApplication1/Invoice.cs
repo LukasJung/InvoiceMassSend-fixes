@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ConsoleApplication1
@@ -25,26 +24,52 @@ namespace ConsoleApplication1
         {
             try
             {
-                MySqlCommand command = dbconnect.connection.CreateCommand();
-                command.CommandText = string.Format("SELECT `SheetNr`,`AuftragsNr`,`AuftragsKennung`,`VorgangNr`,`Anschrift_Email` FROM `fk_auftrag` WHERE `AuftragsNr` = '{0}' AND `AuftragsKennung` = 3;", filename.Replace(".pdf", ""));
-                var reader = await command.ExecuteReaderAsync();
-                var rnr = "";
-                var adresse = "";
-                var betreff = "";
-                while (reader.Read())
+                if (filename.Contains("~"))
                 {
-                    rnr = reader.GetString(1);
-                    adresse = reader.GetString(4);
-                    betreff = "Ihre Rechnung mit der Rechnungsnr: " + rnr + " von Wunschreich";
+                    string destination = Directory.GetCurrentDirectory() + "\\error\\" + filename + ".pdf";
+                    string attach = Directory.GetCurrentDirectory() + "\\" + filename;
+                    File.Move(attach, destination);
                 }
+                else                    
+                {
+
+                    MySqlCommand command = dbconnect.connection.CreateCommand();
+                    command.CommandText = string.Format("SELECT `SheetNr`,`AuftragsNr`,`AuftragsKennung`,`VorgangNr`,`Anschrift_Email` FROM `fk_auftrag` WHERE `AuftragsNr` = '{0}' AND `AuftragsKennung` = 3;", filename.Replace(".pdf", ""));
+                    var reader = await command.ExecuteReaderAsync();
+                    var rnr = "";
+                    var adresse = "";
+                    var betreff = "";
+                    while (reader.Read())
+                    {
+                        rnr = reader.GetString(1);
+                        adresse = reader.GetString(4);
+                        betreff = "Ihre Rechnung mit der Rechnungsnr: " + rnr + " von Wunschreich";  
+                                                
+                    }
                     reader.Close();
-                string attach = Directory.GetCurrentDirectory()+"\\" + filename;
-                await send_mail.send(adresse, betreff, attach, rnr);
-                Console.WriteLine(attach);
-                string destination = Directory.GetCurrentDirectory()+ "\\processed\\"+ rnr+ ".pdf";
-                Console.WriteLine(destination);
-                Console.WriteLine(DateTime.Now);
-                File.Move(attach, destination);
+                    if (adresse.Contains("@"))
+                    {
+                        string attach = Directory.GetCurrentDirectory() + "\\" + filename;
+                        await send_mail.send(adresse, betreff, attach, rnr);
+                        Console.WriteLine(attach);
+                        string destination = Directory.GetCurrentDirectory() + "\\processed\\" + rnr + ".pdf";
+                        Console.WriteLine(destination);
+                        Console.WriteLine(DateTime.Now);
+                        File.Move(attach, destination);
+                    }
+                    else
+                    {
+                        await dbconnect.updaterecord(rnr, false);
+                        string attach = Directory.GetCurrentDirectory() + "\\" + filename;
+                        Console.WriteLine(attach);
+                        string destination = Directory.GetCurrentDirectory() + "\\processed\\errors\\" + rnr + ".pdf";
+                        Console.WriteLine(destination);
+                        Console.WriteLine(DateTime.Now);
+                        File.Move(attach, destination);
+                    }
+                    
+                }
+                
                 
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }

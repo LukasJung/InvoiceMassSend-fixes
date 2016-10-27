@@ -3,7 +3,6 @@ using System.IO;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace Rechnungsversand
 {

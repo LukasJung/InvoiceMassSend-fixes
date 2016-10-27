@@ -1,7 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using System.IO;
-using System.Linq;
-using System.Configuration;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using ConsoleApplication1;
 using System;
@@ -12,7 +9,7 @@ namespace Rechnungsversand
     {
         static void Main(string[] args)
         {
-            dbconnect.OpenConnection(); // Open database connection globally; once for every action.
+            dbconnect.OpenConnection();
             MainAsync().Wait();
             dbconnect.CloseConnection();
         }
@@ -37,7 +34,7 @@ namespace Rechnungsversand
                 }
                 else break;
                 invoices.RemoveAll(o => o == null);
-                Console.WriteLine("Press any key to stop...");
+                Console.WriteLine("Fertig, Taste drücken um zu beenden.");
                 Console.ReadKey();
             }
         }
