@@ -1,0 +1,535 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="lexwarenewModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="fk_auftrag">
+          <Key>
+            <PropertyRef Name="SheetNr" />
+          </Key>
+          <Property Name="SheetNr" Type="int" Nullable="false" />
+          <Property Name="AuftragsNr" Type="varchar" MaxLength="200" />
+          <Property Name="AuftragsKennung" Type="int" />
+          <Property Name="BelegKreis" Type="int" />
+          <Property Name="KundenNr" Type="varchar" MaxLength="200" />
+          <Property Name="LieferantenNr" Type="varchar" MaxLength="200" />
+          <Property Name="ProjektNr" Type="varchar" MaxLength="200" />
+          <Property Name="KundenMatchcode" Type="varchar" MaxLength="200" />
+          <Property Name="VorgangNr" Type="int" />
+          <Property Name="SammelRgNr" Type="int" />
+          <Property Name="BestellNr" Type="varchar" MaxLength="200" />
+          <Property Name="Bearbeiter" Type="varchar" MaxLength="200" />
+          <Property Name="Kontierung_DebitorenNr" Type="int" />
+          <Property Name="Kontierung_Forderungskonto" Type="int" />
+          <Property Name="bKontierung_Ausland" Type="int" />
+          <Property Name="Kontierung_EG_ID_Nr" Type="varchar" MaxLength="200" />
+          <Property Name="Konditionen_Zahlungsbedingung" Type="varchar" MaxLength="200" />
+          <Property Name="Konditionen_Skonto_Text" Type="varchar" MaxLength="200" />
+          <Property Name="Konditionen_Skonto_Text_Rechng" Type="varchar" MaxLength="200" />
+          <Property Name="Konditionen_Ziel_Tage" Type="int" />
+          <Property Name="Konditionen_Skonto_Tage" Type="int" />
+          <Property Name="Konditionen_Skonto_Proz" Type="float" />
+          <Property Name="Konditionen_PreisgrpNr" Type="int" />
+          <Property Name="Konditionen_Rabatt" Type="float" />
+          <Property Name="Konditionen_Rabatt_Proz" Type="float" />
+          <Property Name="Konditionen_Waehrung" Type="int" />
+          <Property Name="Konditionen_Zahlungsart" Type="int" />
+          <Property Name="Konditionen_Lieferart" Type="varchar" MaxLength="200" />
+          <Property Name="bKonditionen_ist_brutto" Type="int" />
+          <Property Name="bKonditionen_keine_ust" Type="int" />
+          <Property Name="bKonditionen_rabatt_direkt" Type="int" />
+          <Property Name="bKonditionen_Monatsrechnung" Type="int" />
+          <Property Name="bKonditionen_Lieferstop" Type="int" />
+          <Property Name="Kostenstelle" Type="int" />
+          <Property Name="Kostentraeger" Type="int" />
+          <Property Name="Anschrift_Anrede" Type="varchar" MaxLength="200" />
+          <Property Name="Anschrift_Firma" Type="varchar" MaxLength="200" />
+          <Property Name="Anschrift_Name" Type="varchar" MaxLength="200" />
+          <Property Name="Anschrift_Vorname" Type="varchar" MaxLength="200" />
+          <Property Name="Anschrift_Zusatz" Type="varchar" MaxLength="200" />
+          <Property Name="Anschrift_Ansprech" Type="varchar" MaxLength="200" />
+          <Property Name="Anschrift_Strasse" Type="varchar" MaxLength="200" />
+          <Property Name="Anschrift_HausNr" Type="varchar" MaxLength="200" />
+          <Property Name="Anschrift_Ort" Type="varchar" MaxLength="200" />
+          <Property Name="Anschrift_Plz" Type="varchar" MaxLength="200" />
+          <Property Name="Anschrift_Land" Type="varchar" MaxLength="200" />
+          <Property Name="Anschrift_Tel1" Type="varchar" MaxLength="200" />
+          <Property Name="Anschrift_Tel2" Type="varchar" MaxLength="200" />
+          <Property Name="Anschrift_Fax" Type="varchar" MaxLength="200" />
+          <Property Name="Anschrift_Email" Type="varchar" MaxLength="200" />
+          <Property Name="Texte_Kopftext" Type="text" />
+          <Property Name="Texte_Fusstext" Type="text" />
+          <Property Name="Datum_erfassung" Type="datetime" Precision="0" />
+          <Property Name="Datum_zahlung" Type="datetime" Precision="0" />
+          <Property Name="Summen_netto_haupt" Type="float" />
+          <Property Name="Summen_brutto_haupt" Type="float" />
+          <Property Name="Summen_netto_neben" Type="float" />
+          <Property Name="Summen_brutto_neben" Type="float" />
+          <Property Name="Summen_ust_gesamt" Type="float" />
+          <Property Name="Summen_abschlag_netto" Type="float" />
+          <Property Name="Summen_abschlag_brutto" Type="float" />
+          <Property Name="Summen_abschlag_ust_schluessel" Type="int" />
+          <Property Name="Summen_abschlag_ust" Type="float" />
+          <Property Name="Summen_abschlag_forderung" Type="float" />
+          <Property Name="Summen_abschlag_erhalten" Type="float" />
+          <Property Name="Summen_gesamt" Type="float" />
+          <Property Name="bStatus_lagergebucht" Type="int" />
+          <Property Name="bStatus_gebucht" Type="int" />
+          <Property Name="bStatus_uebernommen" Type="int" />
+          <Property Name="bStatus_gedruckt" Type="int" />
+          <Property Name="bStatus_exportiert" Type="int" />
+          <Property Name="bStatus_geliefert" Type="int" />
+          <Property Name="bStatus_gemahnt" Type="int" />
+          <Property Name="bStatus_bezahlt" Type="int" />
+          <Property Name="bStatus_liefer_fakturiert" Type="int" />
+          <Property Name="bStatus_export_ascii" Type="int" />
+          <Property Name="bStatus_export_datev" Type="int" />
+          <Property Name="bStatus_abschlag" Type="int" />
+          <Property Name="bStatus_weitergefuehrt" Type="int" />
+          <Property Name="bStatus_erfassung_komplett" Type="int" />
+          <Property Name="bStatus_internet" Type="int" />
+          <Property Name="Verweis_weiter_aus_nr" Type="int" />
+          <Property Name="Verweis_weiter_in_nr" Type="int" />
+          <Property Name="Verweis_SchlussRgNr" Type="int" />
+          <Property Name="Verweis_GesamtRgNr" Type="int" />
+          <Property Name="Version" Type="int" />
+          <Property Name="Status_drucken" Type="int" />
+          <Property Name="Status_gedruckt" Type="int" />
+          <Property Name="System_created" Type="datetime" Precision="0" />
+          <Property Name="System_created_user" Type="varchar" MaxLength="200" />
+          <Property Name="System_updated" Type="datetime" Precision="0" />
+          <Property Name="System_updated_user" Type="varchar" MaxLength="200" />
+          <Property Name="bStatus_gemailt" Type="int" />
+          <Property Name="bStatus_frankiert" Type="int" />
+          <Property Name="Summen_roherloes" Type="float" />
+          <Property Name="Summen_roherloesEK" Type="float" />
+          <Property Name="Summen_roherloesVK" Type="float" />
+          <Property Name="bStatus_storniert" Type="int" />
+          <Property Name="bStornoOrgGebucht" Type="int" />
+          <Property Name="lStornoOrgKennung" Type="int" />
+          <Property Name="lAboID" Type="int" />
+          <Property Name="lAboVorlageID" Type="int" />
+          <Property Name="tsAboBegin" Type="datetime" Precision="0" />
+          <Property Name="tsAboEnde" Type="datetime" Precision="0" />
+          <Property Name="fAboAbgeschlossen" Type="int" />
+          <Property Name="lWiedervorlageID" Type="int" />
+          <Property Name="Konditionen_Skonto_Tage2" Type="int" />
+          <Property Name="Konditionen_Skonto_Proz2" Type="float" />
+          <Property Name="szRMA" Type="varchar" MaxLength="200" />
+          <Property Name="szLieferantSteuerNr" Type="varchar" MaxLength="200" />
+          <Property Name="bKontierungUmkehr_13b" Type="int" />
+          <Property Name="lKontierungFrage_13b" Type="int" />
+          <Property Name="lFkNumID" Type="int" />
+          <Property Name="tsLieferTermin" Type="datetime" Precision="0" />
+          <Property Name="szUserdefined1" Type="varchar" MaxLength="200" />
+          <Property Name="szUserdefined2" Type="varchar" MaxLength="200" />
+          <Property Name="szUserdefined3" Type="varchar" MaxLength="200" />
+          <Property Name="lAnschriftID" Type="int" />
+          <Property Name="dftSummen_Selbstkosten" Type="float" />
+          <Property Name="bSelbstkostenKomplett" Type="int" />
+          <Property Name="dftSummen_Gegeben" Type="float" />
+          <Property Name="bBarbeleg" Type="int" />
+          <Property Name="lKasseID" Type="int" />
+          <Property Name="lBonNr" Type="int" />
+          <Property Name="lZahlungsart" Type="int" />
+          <Property Name="tsZahlung" Type="datetime" Precision="0" />
+          <Property Name="lKundengruppenID" Type="int" />
+          <Property Name="lVertreterID" Type="int" />
+          <Property Name="lBranchenID" Type="int" />
+          <Property Name="szAgetoID" Type="varchar" MaxLength="200" />
+          <Property Name="lHerkunft" Type="int" />
+          <Property Name="bStatus_Teilgezahlt" Type="int" />
+          <Property Name="lSammelRgnOrderUp" Type="int" />
+          <Property Name="lAbschlagRgnOrderUp" Type="int" />
+          <Property Name="tsServiceZeitpunkt" Type="datetime" Precision="0" />
+          <Property Name="szKundendienstler" Type="varchar" MaxLength="200" />
+          <Property Name="bKV_verbindlich" Type="int" />
+          <Property Name="lAnschriftID_Service" Type="int" />
+          <Property Name="f2007Ready" Type="int" />
+          <Property Name="lElectronicInvoiceStatus" Type="int" />
+          <Property Name="szElectronicInvoiceFile" Type="varchar" MaxLength="200" />
+          <Property Name="szElectronicInvoiceGuid" Type="varchar" MaxLength="200" />
+          <Property Name="dftSumme_GewinnNetto_NAR" Type="float" />
+          <Property Name="bBarKasse" Type="int" />
+          <Property Name="szACCVersionInfo" Type="varchar" MaxLength="200" />
+          <Property Name="lProvEmpfaengerID" Type="int" />
+          <Property Name="lProvEmpfaengerVersionID" Type="int" />
+          <Property Name="dftSummen_Gewicht" Type="float" />
+          <Property Name="szLeistungsDatum" Type="varchar" MaxLength="200" />
+          <Property Name="szUserdefined4" Type="varchar" MaxLength="200" />
+          <Property Name="szUserdefined5" Type="varchar" MaxLength="200" />
+          <Property Name="szUserdefined6" Type="varchar" MaxLength="200" />
+          <Property Name="bFixFaellig" Type="int" />
+          <Property Name="lTagVonMonat" Type="int" />
+          <Property Name="lTageVorlauf" Type="int" />
+          <Property Name="lStatusPoststelle" Type="int" />
+          <Property Name="lStatusNotiz" Type="int" />
+        </EntityType>
+        <EntityContainer Name="lexwarenewModelStoreContainer">
+          <EntitySet Name="fk_auftrag" EntityType="Self.fk_auftrag" Schema="lexwarenew" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="lexwarenewModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="fk_auftrag">
+          <Key>
+            <PropertyRef Name="SheetNr" />
+          </Key>
+          <Property Name="SheetNr" Type="Int32" Nullable="false" />
+          <Property Name="AuftragsNr" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="AuftragsKennung" Type="Int32" />
+          <Property Name="BelegKreis" Type="Int32" />
+          <Property Name="KundenNr" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="LieferantenNr" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ProjektNr" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="KundenMatchcode" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="VorgangNr" Type="Int32" />
+          <Property Name="SammelRgNr" Type="Int32" />
+          <Property Name="BestellNr" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Bearbeiter" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Kontierung_DebitorenNr" Type="Int32" />
+          <Property Name="Kontierung_Forderungskonto" Type="Int32" />
+          <Property Name="bKontierung_Ausland" Type="Int32" />
+          <Property Name="Kontierung_EG_ID_Nr" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Konditionen_Zahlungsbedingung" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Konditionen_Skonto_Text" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Konditionen_Skonto_Text_Rechng" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Konditionen_Ziel_Tage" Type="Int32" />
+          <Property Name="Konditionen_Skonto_Tage" Type="Int32" />
+          <Property Name="Konditionen_Skonto_Proz" Type="Single" />
+          <Property Name="Konditionen_PreisgrpNr" Type="Int32" />
+          <Property Name="Konditionen_Rabatt" Type="Single" />
+          <Property Name="Konditionen_Rabatt_Proz" Type="Single" />
+          <Property Name="Konditionen_Waehrung" Type="Int32" />
+          <Property Name="Konditionen_Zahlungsart" Type="Int32" />
+          <Property Name="Konditionen_Lieferart" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="bKonditionen_ist_brutto" Type="Int32" />
+          <Property Name="bKonditionen_keine_ust" Type="Int32" />
+          <Property Name="bKonditionen_rabatt_direkt" Type="Int32" />
+          <Property Name="bKonditionen_Monatsrechnung" Type="Int32" />
+          <Property Name="bKonditionen_Lieferstop" Type="Int32" />
+          <Property Name="Kostenstelle" Type="Int32" />
+          <Property Name="Kostentraeger" Type="Int32" />
+          <Property Name="Anschrift_Anrede" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Anschrift_Firma" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Anschrift_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Anschrift_Vorname" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Anschrift_Zusatz" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Anschrift_Ansprech" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Anschrift_Strasse" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Anschrift_HausNr" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Anschrift_Ort" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Anschrift_Plz" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Anschrift_Land" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Anschrift_Tel1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Anschrift_Tel2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Anschrift_Fax" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Anschrift_Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Texte_Kopftext" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Texte_Fusstext" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Datum_erfassung" Type="DateTime" />
+          <Property Name="Datum_zahlung" Type="DateTime" />
+          <Property Name="Summen_netto_haupt" Type="Single" />
+          <Property Name="Summen_brutto_haupt" Type="Single" />
+          <Property Name="Summen_netto_neben" Type="Single" />
+          <Property Name="Summen_brutto_neben" Type="Single" />
+          <Property Name="Summen_ust_gesamt" Type="Single" />
+          <Property Name="Summen_abschlag_netto" Type="Single" />
+          <Property Name="Summen_abschlag_brutto" Type="Single" />
+          <Property Name="Summen_abschlag_ust_schluessel" Type="Int32" />
+          <Property Name="Summen_abschlag_ust" Type="Single" />
+          <Property Name="Summen_abschlag_forderung" Type="Single" />
+          <Property Name="Summen_abschlag_erhalten" Type="Single" />
+          <Property Name="Summen_gesamt" Type="Single" />
+          <Property Name="bStatus_lagergebucht" Type="Int32" />
+          <Property Name="bStatus_gebucht" Type="Int32" />
+          <Property Name="bStatus_uebernommen" Type="Int32" />
+          <Property Name="bStatus_gedruckt" Type="Int32" />
+          <Property Name="bStatus_exportiert" Type="Int32" />
+          <Property Name="bStatus_geliefert" Type="Int32" />
+          <Property Name="bStatus_gemahnt" Type="Int32" />
+          <Property Name="bStatus_bezahlt" Type="Int32" />
+          <Property Name="bStatus_liefer_fakturiert" Type="Int32" />
+          <Property Name="bStatus_export_ascii" Type="Int32" />
+          <Property Name="bStatus_export_datev" Type="Int32" />
+          <Property Name="bStatus_abschlag" Type="Int32" />
+          <Property Name="bStatus_weitergefuehrt" Type="Int32" />
+          <Property Name="bStatus_erfassung_komplett" Type="Int32" />
+          <Property Name="bStatus_internet" Type="Int32" />
+          <Property Name="Verweis_weiter_aus_nr" Type="Int32" />
+          <Property Name="Verweis_weiter_in_nr" Type="Int32" />
+          <Property Name="Verweis_SchlussRgNr" Type="Int32" />
+          <Property Name="Verweis_GesamtRgNr" Type="Int32" />
+          <Property Name="Version" Type="Int32" />
+          <Property Name="Status_drucken" Type="Int32" />
+          <Property Name="Status_gedruckt" Type="Int32" />
+          <Property Name="System_created" Type="DateTime" />
+          <Property Name="System_created_user" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="System_updated" Type="DateTime" />
+          <Property Name="System_updated_user" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="bStatus_gemailt" Type="Int32" />
+          <Property Name="bStatus_frankiert" Type="Int32" />
+          <Property Name="Summen_roherloes" Type="Single" />
+          <Property Name="Summen_roherloesEK" Type="Single" />
+          <Property Name="Summen_roherloesVK" Type="Single" />
+          <Property Name="bStatus_storniert" Type="Int32" />
+          <Property Name="bStornoOrgGebucht" Type="Int32" />
+          <Property Name="lStornoOrgKennung" Type="Int32" />
+          <Property Name="lAboID" Type="Int32" />
+          <Property Name="lAboVorlageID" Type="Int32" />
+          <Property Name="tsAboBegin" Type="DateTime" />
+          <Property Name="tsAboEnde" Type="DateTime" />
+          <Property Name="fAboAbgeschlossen" Type="Int32" />
+          <Property Name="lWiedervorlageID" Type="Int32" />
+          <Property Name="Konditionen_Skonto_Tage2" Type="Int32" />
+          <Property Name="Konditionen_Skonto_Proz2" Type="Single" />
+          <Property Name="szRMA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="szLieferantSteuerNr" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="bKontierungUmkehr_13b" Type="Int32" />
+          <Property Name="lKontierungFrage_13b" Type="Int32" />
+          <Property Name="lFkNumID" Type="Int32" />
+          <Property Name="tsLieferTermin" Type="DateTime" />
+          <Property Name="szUserdefined1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="szUserdefined2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="szUserdefined3" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="lAnschriftID" Type="Int32" />
+          <Property Name="dftSummen_Selbstkosten" Type="Single" />
+          <Property Name="bSelbstkostenKomplett" Type="Int32" />
+          <Property Name="dftSummen_Gegeben" Type="Single" />
+          <Property Name="bBarbeleg" Type="Int32" />
+          <Property Name="lKasseID" Type="Int32" />
+          <Property Name="lBonNr" Type="Int32" />
+          <Property Name="lZahlungsart" Type="Int32" />
+          <Property Name="tsZahlung" Type="DateTime" />
+          <Property Name="lKundengruppenID" Type="Int32" />
+          <Property Name="lVertreterID" Type="Int32" />
+          <Property Name="lBranchenID" Type="Int32" />
+          <Property Name="szAgetoID" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="lHerkunft" Type="Int32" />
+          <Property Name="bStatus_Teilgezahlt" Type="Int32" />
+          <Property Name="lSammelRgnOrderUp" Type="Int32" />
+          <Property Name="lAbschlagRgnOrderUp" Type="Int32" />
+          <Property Name="tsServiceZeitpunkt" Type="DateTime" />
+          <Property Name="szKundendienstler" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="bKV_verbindlich" Type="Int32" />
+          <Property Name="lAnschriftID_Service" Type="Int32" />
+          <Property Name="f2007Ready" Type="Int32" />
+          <Property Name="lElectronicInvoiceStatus" Type="Int32" />
+          <Property Name="szElectronicInvoiceFile" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="szElectronicInvoiceGuid" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="dftSumme_GewinnNetto_NAR" Type="Single" />
+          <Property Name="bBarKasse" Type="Int32" />
+          <Property Name="szACCVersionInfo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="lProvEmpfaengerID" Type="Int32" />
+          <Property Name="lProvEmpfaengerVersionID" Type="Int32" />
+          <Property Name="dftSummen_Gewicht" Type="Single" />
+          <Property Name="szLeistungsDatum" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="szUserdefined4" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="szUserdefined5" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="szUserdefined6" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="bFixFaellig" Type="Int32" />
+          <Property Name="lTagVonMonat" Type="Int32" />
+          <Property Name="lTageVorlauf" Type="Int32" />
+          <Property Name="lStatusPoststelle" Type="Int32" />
+          <Property Name="lStatusNotiz" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="lexwarenewEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="fk_auftrag" EntityType="Self.fk_auftrag" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="lexwarenewModelStoreContainer" CdmEntityContainer="lexwarenewEntities">
+          <EntitySetMapping Name="fk_auftrag">
+            <EntityTypeMapping TypeName="lexwarenewModel.fk_auftrag">
+              <MappingFragment StoreEntitySet="fk_auftrag">
+                <ScalarProperty Name="SheetNr" ColumnName="SheetNr" />
+                <ScalarProperty Name="AuftragsNr" ColumnName="AuftragsNr" />
+                <ScalarProperty Name="AuftragsKennung" ColumnName="AuftragsKennung" />
+                <ScalarProperty Name="BelegKreis" ColumnName="BelegKreis" />
+                <ScalarProperty Name="KundenNr" ColumnName="KundenNr" />
+                <ScalarProperty Name="LieferantenNr" ColumnName="LieferantenNr" />
+                <ScalarProperty Name="ProjektNr" ColumnName="ProjektNr" />
+                <ScalarProperty Name="KundenMatchcode" ColumnName="KundenMatchcode" />
+                <ScalarProperty Name="VorgangNr" ColumnName="VorgangNr" />
+                <ScalarProperty Name="SammelRgNr" ColumnName="SammelRgNr" />
+                <ScalarProperty Name="BestellNr" ColumnName="BestellNr" />
+                <ScalarProperty Name="Bearbeiter" ColumnName="Bearbeiter" />
+                <ScalarProperty Name="Kontierung_DebitorenNr" ColumnName="Kontierung_DebitorenNr" />
+                <ScalarProperty Name="Kontierung_Forderungskonto" ColumnName="Kontierung_Forderungskonto" />
+                <ScalarProperty Name="bKontierung_Ausland" ColumnName="bKontierung_Ausland" />
+                <ScalarProperty Name="Kontierung_EG_ID_Nr" ColumnName="Kontierung_EG_ID_Nr" />
+                <ScalarProperty Name="Konditionen_Zahlungsbedingung" ColumnName="Konditionen_Zahlungsbedingung" />
+                <ScalarProperty Name="Konditionen_Skonto_Text" ColumnName="Konditionen_Skonto_Text" />
+                <ScalarProperty Name="Konditionen_Skonto_Text_Rechng" ColumnName="Konditionen_Skonto_Text_Rechng" />
+                <ScalarProperty Name="Konditionen_Ziel_Tage" ColumnName="Konditionen_Ziel_Tage" />
+                <ScalarProperty Name="Konditionen_Skonto_Tage" ColumnName="Konditionen_Skonto_Tage" />
+                <ScalarProperty Name="Konditionen_Skonto_Proz" ColumnName="Konditionen_Skonto_Proz" />
+                <ScalarProperty Name="Konditionen_PreisgrpNr" ColumnName="Konditionen_PreisgrpNr" />
+                <ScalarProperty Name="Konditionen_Rabatt" ColumnName="Konditionen_Rabatt" />
+                <ScalarProperty Name="Konditionen_Rabatt_Proz" ColumnName="Konditionen_Rabatt_Proz" />
+                <ScalarProperty Name="Konditionen_Waehrung" ColumnName="Konditionen_Waehrung" />
+                <ScalarProperty Name="Konditionen_Zahlungsart" ColumnName="Konditionen_Zahlungsart" />
+                <ScalarProperty Name="Konditionen_Lieferart" ColumnName="Konditionen_Lieferart" />
+                <ScalarProperty Name="bKonditionen_ist_brutto" ColumnName="bKonditionen_ist_brutto" />
+                <ScalarProperty Name="bKonditionen_keine_ust" ColumnName="bKonditionen_keine_ust" />
+                <ScalarProperty Name="bKonditionen_rabatt_direkt" ColumnName="bKonditionen_rabatt_direkt" />
+                <ScalarProperty Name="bKonditionen_Monatsrechnung" ColumnName="bKonditionen_Monatsrechnung" />
+                <ScalarProperty Name="bKonditionen_Lieferstop" ColumnName="bKonditionen_Lieferstop" />
+                <ScalarProperty Name="Kostenstelle" ColumnName="Kostenstelle" />
+                <ScalarProperty Name="Kostentraeger" ColumnName="Kostentraeger" />
+                <ScalarProperty Name="Anschrift_Anrede" ColumnName="Anschrift_Anrede" />
+                <ScalarProperty Name="Anschrift_Firma" ColumnName="Anschrift_Firma" />
+                <ScalarProperty Name="Anschrift_Name" ColumnName="Anschrift_Name" />
+                <ScalarProperty Name="Anschrift_Vorname" ColumnName="Anschrift_Vorname" />
+                <ScalarProperty Name="Anschrift_Zusatz" ColumnName="Anschrift_Zusatz" />
+                <ScalarProperty Name="Anschrift_Ansprech" ColumnName="Anschrift_Ansprech" />
+                <ScalarProperty Name="Anschrift_Strasse" ColumnName="Anschrift_Strasse" />
+                <ScalarProperty Name="Anschrift_HausNr" ColumnName="Anschrift_HausNr" />
+                <ScalarProperty Name="Anschrift_Ort" ColumnName="Anschrift_Ort" />
+                <ScalarProperty Name="Anschrift_Plz" ColumnName="Anschrift_Plz" />
+                <ScalarProperty Name="Anschrift_Land" ColumnName="Anschrift_Land" />
+                <ScalarProperty Name="Anschrift_Tel1" ColumnName="Anschrift_Tel1" />
+                <ScalarProperty Name="Anschrift_Tel2" ColumnName="Anschrift_Tel2" />
+                <ScalarProperty Name="Anschrift_Fax" ColumnName="Anschrift_Fax" />
+                <ScalarProperty Name="Anschrift_Email" ColumnName="Anschrift_Email" />
+                <ScalarProperty Name="Texte_Kopftext" ColumnName="Texte_Kopftext" />
+                <ScalarProperty Name="Texte_Fusstext" ColumnName="Texte_Fusstext" />
+                <ScalarProperty Name="Datum_erfassung" ColumnName="Datum_erfassung" />
+                <ScalarProperty Name="Datum_zahlung" ColumnName="Datum_zahlung" />
+                <ScalarProperty Name="Summen_netto_haupt" ColumnName="Summen_netto_haupt" />
+                <ScalarProperty Name="Summen_brutto_haupt" ColumnName="Summen_brutto_haupt" />
+                <ScalarProperty Name="Summen_netto_neben" ColumnName="Summen_netto_neben" />
+                <ScalarProperty Name="Summen_brutto_neben" ColumnName="Summen_brutto_neben" />
+                <ScalarProperty Name="Summen_ust_gesamt" ColumnName="Summen_ust_gesamt" />
+                <ScalarProperty Name="Summen_abschlag_netto" ColumnName="Summen_abschlag_netto" />
+                <ScalarProperty Name="Summen_abschlag_brutto" ColumnName="Summen_abschlag_brutto" />
+                <ScalarProperty Name="Summen_abschlag_ust_schluessel" ColumnName="Summen_abschlag_ust_schluessel" />
+                <ScalarProperty Name="Summen_abschlag_ust" ColumnName="Summen_abschlag_ust" />
+                <ScalarProperty Name="Summen_abschlag_forderung" ColumnName="Summen_abschlag_forderung" />
+                <ScalarProperty Name="Summen_abschlag_erhalten" ColumnName="Summen_abschlag_erhalten" />
+                <ScalarProperty Name="Summen_gesamt" ColumnName="Summen_gesamt" />
+                <ScalarProperty Name="bStatus_lagergebucht" ColumnName="bStatus_lagergebucht" />
+                <ScalarProperty Name="bStatus_gebucht" ColumnName="bStatus_gebucht" />
+                <ScalarProperty Name="bStatus_uebernommen" ColumnName="bStatus_uebernommen" />
+                <ScalarProperty Name="bStatus_gedruckt" ColumnName="bStatus_gedruckt" />
+                <ScalarProperty Name="bStatus_exportiert" ColumnName="bStatus_exportiert" />
+                <ScalarProperty Name="bStatus_geliefert" ColumnName="bStatus_geliefert" />
+                <ScalarProperty Name="bStatus_gemahnt" ColumnName="bStatus_gemahnt" />
+                <ScalarProperty Name="bStatus_bezahlt" ColumnName="bStatus_bezahlt" />
+                <ScalarProperty Name="bStatus_liefer_fakturiert" ColumnName="bStatus_liefer_fakturiert" />
+                <ScalarProperty Name="bStatus_export_ascii" ColumnName="bStatus_export_ascii" />
+                <ScalarProperty Name="bStatus_export_datev" ColumnName="bStatus_export_datev" />
+                <ScalarProperty Name="bStatus_abschlag" ColumnName="bStatus_abschlag" />
+                <ScalarProperty Name="bStatus_weitergefuehrt" ColumnName="bStatus_weitergefuehrt" />
+                <ScalarProperty Name="bStatus_erfassung_komplett" ColumnName="bStatus_erfassung_komplett" />
+                <ScalarProperty Name="bStatus_internet" ColumnName="bStatus_internet" />
+                <ScalarProperty Name="Verweis_weiter_aus_nr" ColumnName="Verweis_weiter_aus_nr" />
+                <ScalarProperty Name="Verweis_weiter_in_nr" ColumnName="Verweis_weiter_in_nr" />
+                <ScalarProperty Name="Verweis_SchlussRgNr" ColumnName="Verweis_SchlussRgNr" />
+                <ScalarProperty Name="Verweis_GesamtRgNr" ColumnName="Verweis_GesamtRgNr" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Status_drucken" ColumnName="Status_drucken" />
+                <ScalarProperty Name="Status_gedruckt" ColumnName="Status_gedruckt" />
+                <ScalarProperty Name="System_created" ColumnName="System_created" />
+                <ScalarProperty Name="System_created_user" ColumnName="System_created_user" />
+                <ScalarProperty Name="System_updated" ColumnName="System_updated" />
+                <ScalarProperty Name="System_updated_user" ColumnName="System_updated_user" />
+                <ScalarProperty Name="bStatus_gemailt" ColumnName="bStatus_gemailt" />
+                <ScalarProperty Name="bStatus_frankiert" ColumnName="bStatus_frankiert" />
+                <ScalarProperty Name="Summen_roherloes" ColumnName="Summen_roherloes" />
+                <ScalarProperty Name="Summen_roherloesEK" ColumnName="Summen_roherloesEK" />
+                <ScalarProperty Name="Summen_roherloesVK" ColumnName="Summen_roherloesVK" />
+                <ScalarProperty Name="bStatus_storniert" ColumnName="bStatus_storniert" />
+                <ScalarProperty Name="bStornoOrgGebucht" ColumnName="bStornoOrgGebucht" />
+                <ScalarProperty Name="lStornoOrgKennung" ColumnName="lStornoOrgKennung" />
+                <ScalarProperty Name="lAboID" ColumnName="lAboID" />
+                <ScalarProperty Name="lAboVorlageID" ColumnName="lAboVorlageID" />
+                <ScalarProperty Name="tsAboBegin" ColumnName="tsAboBegin" />
+                <ScalarProperty Name="tsAboEnde" ColumnName="tsAboEnde" />
+                <ScalarProperty Name="fAboAbgeschlossen" ColumnName="fAboAbgeschlossen" />
+                <ScalarProperty Name="lWiedervorlageID" ColumnName="lWiedervorlageID" />
+                <ScalarProperty Name="Konditionen_Skonto_Tage2" ColumnName="Konditionen_Skonto_Tage2" />
+                <ScalarProperty Name="Konditionen_Skonto_Proz2" ColumnName="Konditionen_Skonto_Proz2" />
+                <ScalarProperty Name="szRMA" ColumnName="szRMA" />
+                <ScalarProperty Name="szLieferantSteuerNr" ColumnName="szLieferantSteuerNr" />
+                <ScalarProperty Name="bKontierungUmkehr_13b" ColumnName="bKontierungUmkehr_13b" />
+                <ScalarProperty Name="lKontierungFrage_13b" ColumnName="lKontierungFrage_13b" />
+                <ScalarProperty Name="lFkNumID" ColumnName="lFkNumID" />
+                <ScalarProperty Name="tsLieferTermin" ColumnName="tsLieferTermin" />
+                <ScalarProperty Name="szUserdefined1" ColumnName="szUserdefined1" />
+                <ScalarProperty Name="szUserdefined2" ColumnName="szUserdefined2" />
+                <ScalarProperty Name="szUserdefined3" ColumnName="szUserdefined3" />
+                <ScalarProperty Name="lAnschriftID" ColumnName="lAnschriftID" />
+                <ScalarProperty Name="dftSummen_Selbstkosten" ColumnName="dftSummen_Selbstkosten" />
+                <ScalarProperty Name="bSelbstkostenKomplett" ColumnName="bSelbstkostenKomplett" />
+                <ScalarProperty Name="dftSummen_Gegeben" ColumnName="dftSummen_Gegeben" />
+                <ScalarProperty Name="bBarbeleg" ColumnName="bBarbeleg" />
+                <ScalarProperty Name="lKasseID" ColumnName="lKasseID" />
+                <ScalarProperty Name="lBonNr" ColumnName="lBonNr" />
+                <ScalarProperty Name="lZahlungsart" ColumnName="lZahlungsart" />
+                <ScalarProperty Name="tsZahlung" ColumnName="tsZahlung" />
+                <ScalarProperty Name="lKundengruppenID" ColumnName="lKundengruppenID" />
+                <ScalarProperty Name="lVertreterID" ColumnName="lVertreterID" />
+                <ScalarProperty Name="lBranchenID" ColumnName="lBranchenID" />
+                <ScalarProperty Name="szAgetoID" ColumnName="szAgetoID" />
+                <ScalarProperty Name="lHerkunft" ColumnName="lHerkunft" />
+                <ScalarProperty Name="bStatus_Teilgezahlt" ColumnName="bStatus_Teilgezahlt" />
+                <ScalarProperty Name="lSammelRgnOrderUp" ColumnName="lSammelRgnOrderUp" />
+                <ScalarProperty Name="lAbschlagRgnOrderUp" ColumnName="lAbschlagRgnOrderUp" />
+                <ScalarProperty Name="tsServiceZeitpunkt" ColumnName="tsServiceZeitpunkt" />
+                <ScalarProperty Name="szKundendienstler" ColumnName="szKundendienstler" />
+                <ScalarProperty Name="bKV_verbindlich" ColumnName="bKV_verbindlich" />
+                <ScalarProperty Name="lAnschriftID_Service" ColumnName="lAnschriftID_Service" />
+                <ScalarProperty Name="f2007Ready" ColumnName="f2007Ready" />
+                <ScalarProperty Name="lElectronicInvoiceStatus" ColumnName="lElectronicInvoiceStatus" />
+                <ScalarProperty Name="szElectronicInvoiceFile" ColumnName="szElectronicInvoiceFile" />
+                <ScalarProperty Name="szElectronicInvoiceGuid" ColumnName="szElectronicInvoiceGuid" />
+                <ScalarProperty Name="dftSumme_GewinnNetto_NAR" ColumnName="dftSumme_GewinnNetto_NAR" />
+                <ScalarProperty Name="bBarKasse" ColumnName="bBarKasse" />
+                <ScalarProperty Name="szACCVersionInfo" ColumnName="szACCVersionInfo" />
+                <ScalarProperty Name="lProvEmpfaengerID" ColumnName="lProvEmpfaengerID" />
+                <ScalarProperty Name="lProvEmpfaengerVersionID" ColumnName="lProvEmpfaengerVersionID" />
+                <ScalarProperty Name="dftSummen_Gewicht" ColumnName="dftSummen_Gewicht" />
+                <ScalarProperty Name="szLeistungsDatum" ColumnName="szLeistungsDatum" />
+                <ScalarProperty Name="szUserdefined4" ColumnName="szUserdefined4" />
+                <ScalarProperty Name="szUserdefined5" ColumnName="szUserdefined5" />
+                <ScalarProperty Name="szUserdefined6" ColumnName="szUserdefined6" />
+                <ScalarProperty Name="bFixFaellig" ColumnName="bFixFaellig" />
+                <ScalarProperty Name="lTagVonMonat" ColumnName="lTagVonMonat" />
+                <ScalarProperty Name="lTageVorlauf" ColumnName="lTageVorlauf" />
+                <ScalarProperty Name="lStatusPoststelle" ColumnName="lStatusPoststelle" />
+                <ScalarProperty Name="lStatusNotiz" ColumnName="lStatusNotiz" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
